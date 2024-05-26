@@ -9,27 +9,26 @@ class Student:
         self.grades_student = grades_student
         student1 = Student("Ruoy", "Eman")
         student2 = Student()
-    def __str__(self, name, surname, av_grades_student, courses_in_progress, finished_courses):
-        return f'{self, name, surname, av_grades_student, courses_in_progress, finished_courses}'
+    f'Имя: {self.name} \\nФамилия: {self.surname} \\nСредняя оценка за домашние задания: {self.rate_avg()} \\nКурсы в процессе изучения: {" | ".join(self.courses_in_progress)} \\nЗавершенные курсы: {" | ".join(self.finished\_courses)}'
+    1234567891011
 
-        for lecturer in lecturers:
-            sum_student += sum(self.grades(course, []) / len(self.grades(course, [])
-            count_student += 1
-            result = av_grades_student = round(sum_student / count_student, 1)
-        return result
-
-
-        def _le_(self, grades_student):
-            return student1 <= student2
-
-        def _gt_(self, grades_student):
-            return student1 > student2
-
-        def _eg_(self, grades_student):
-            return student1 == student2
+    def __lt__(self, other):
+        if not isinstance(other, Student):
+            return 'Студент не принадлежит к классу Student'
+        else:
+            if self.rate_hw() > other.rate_hw():
+                return f'Средний бал студента {self.name} {self.surname} лучше чем у студента {other.name} {other.surname}'
+            elif other.rate_hw() > self.rate_hw():
+                return f'Средний бал студента {other.name} {other.surname} лучше чем у студента {self.name} {self.surname}'
+            else:
+                return f'Студенты: {other.name} {other.surname} и {self.name} {self.surname} равнозначны по успеваемости'
 
 
-
+    student_1 = Student('Ruoy', 'Eman', 'female')
+    best_student.courses_in_progress += ['Python']
+    best_student.courses_in_progress += ['Git']
+    best_student.finished_courses += ['Введение в программирование']
+    print(student_1)
 
     def rate_hw(self, lecturer, course, grade):
         if isinstance(lecturer, Lecturer) and course in self.courses_attached and course in lecturer.courses_in_progress:
